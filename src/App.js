@@ -1,22 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import FileInput from "./components/FileInput.js";
 
 function App() {
+  const [base64String, setBase64String] = useState("");
+  console.log(base64String);
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Image File Upload</h1>
+        <FileInput setBase64String={setBase64String} />
+        {base64String.length > 0 && (
+          <img src={`data:image/png;base64,${base64String}`} />
+        )}
       </header>
     </div>
   );
