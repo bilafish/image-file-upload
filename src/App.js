@@ -11,7 +11,10 @@ function App() {
         <h1>Image File Upload</h1>
         <FileInput setBase64String={setBase64String} />
         {base64String.length > 0 && (
-          <img src={`data:image/png;base64,${base64String}`} />
+          <img
+            src={`data:image/png;base64,${base64String}`}
+            alt="Uploaded image"
+          />
         )}
       </header>
     </div>
